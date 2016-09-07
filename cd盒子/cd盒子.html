@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{background: url(bg.jpg) no-repeat;}
+		html,body{width: 100%;}
+		img{vertical-align: top;}
+		.ul1{width: 100%;position:absolute;bottom:30px;left:20px;margin-bottom: 20px;}
+		.ul1 li{float:left;margin-left:100px;list-style: none;position:relative;width: 200px;height: 200px;}
+		.ul1 li div{width: 194px;height: 194px;border-radius: 50%;position:absolute;left:0;top:0;-webkit-transition:1s all ease;-webkit-transform-origin:center center;}
+		.ul1 li .cd_box{position:relative;width: 100%;height: 100%;}
+		.ul1 li:hover div{top:-100px;-webkit-transform:rotate(720deg);}
+	</style>
+</head>
+<body>
+	<ul class="ul1">
+		<li>
+			<div><img src="cd.png" alt=""></div>
+			<img src="img_01.jpg" alt="" class="cd_box">
+		</li>
+		<li>
+			<div><img src="cd.png" alt=""></div>
+			<img src="img_01.jpg" alt="" class="cd_box">
+		</li>
+		<li>
+			<div><img src="cd.png" alt=""></div>
+			<img src="img_01.jpg" alt="" class="cd_box">
+		</li>
+		<li>
+			<div><img src="cd.png" alt=""></div>
+			<img src="img_01.jpg" alt="" class="cd_box">
+		</li>
+		
+	</ul>
+</body>
+</html>

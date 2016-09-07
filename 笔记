@@ -1,0 +1,49 @@
+彩色文字：
+   蒙版
+   多个背景图 background:url() no-repeat x y,url() no-repeat x y,url() no-repeat x y
+
+改变背景图大小：
+    background-size：
+
+蒙版 :
+   只要有颜色就能透出来
+   -webkit-mask:url()
+彩色文字:
+    -webkit-background-clip:text;
+    注意：
+       1 先设置背景颜色
+       2  -webkit-background-clip:text;
+       3 把文字颜色设置成透明的
+
+信纸
+    contenteditable='true'
+
+旋转： 
+    -webkit-transform:rotate(90deg); z轴旋转
+    rotateX x轴旋转
+    rotateY y轴旋转
+    透视：
+        perspective(px) 800px-1200px 效果最好 数值越小越明显
+平移： 
+    -webkit-transform:translate(x,y)
+缩放：
+    -webkit-transform：scale(x,y) 默认是1
+扭曲：
+    -webkit-transform：skew(x,y) 角度
+
+transform 用的非常多
+   因为： 性能高 不会改变盒子模型
+          不会触发重排 重绘
+   注意：
+       1 行元素不能操作
+       2 transform有先后顺序 后写的先执行 先写的后执行
+
+开启3D模式：
+    -webkit-transform-style:preserve-3d;
+正反面：
+     父级 开启3D
+         正反       translateZ(1px);
+         反面       translateZ(-1px) scale(-1,1);
+旋转 ratate：
+   改变圆心位置 webkit-transform-origin:100px 100px;
+   

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.clock{width: 300px;height: 300px;border:5px solid #000;border-radius: 50%;margin:100px auto;position:relative;box-shadow: 2px 5px 10px #000;}
+		.hou{width:10px; height: 50px;border-radius: 50% 50% 0 0;background: #000;position:absolute;left:50%;margin-left:-5px;top:50%;margin-top:-50px;-webkit-transform-origin:center bottom;}
+		.min{width:6px; height: 70px;border-radius: 50% 50% 0 0;background: blue;position:absolute;left:50%;margin-left:-3px;top:50%;margin-top:-70px;-webkit-transform-origin:center bottom;}
+		.sec{width:3px; height: 100px;border-radius: 50% 50% 0 0;background: #f00;position:absolute;left:50%;margin-left:-1.5px;top:50%;margin-top:-100px;-webkit-transform-origin:center bottom;}
+		.clock span{width:4px;height:10px;background: #000;position:absolute;left:50%;margin-left:-2px;top:0; -webkit-transform-origin:center 150px;}
+		.clock span.big{width:6px;height:15px;margin-left:-3px;}
+		.clock span.big strong{position:absolute;top:15px;left:50%;width:30px;margin-left:-15px;text-align: center;}
+		.clock .box{width: 20px;height: 20px;background:aqua;position:absolute;left:50%;top:50%;margin-top: -10px;margin-left: -10px;border-radius: 50%;}
+	</style>
+	<script>
+		function rnd(n,m){
+			return Math.random()*(m-n)+n;
+		}
+		window.onload=function(){
+			var oClock=document.querySelector('.clock');
+			var oHou=document.querySelector('.hou');
+			var oMin=document.querySelector('.min');
+			var oSec=document.querySelector('.sec');
+			
+			var N=60;
+			for(var i=0;i<N;i++){
+				var oS=document.createElement('span');
+				oS.style.WebkitTransform = 'rotate('+i*6+'deg)';
+				if(i%5==0){
+					oS.className='big';
+					oS.innerHTML='<strong>'+(i/5||12)+'</strong>'
+					var oStr=oS.children[0];
+					oStr.style.WebkitTransform='rotate('+(-i*6)+'deg)';
+                    
+				}
+				oClock.appendChild(oS);	
+
+			}
+						
+			function clock(){
+				var oDate=new Date();
+				var h=oDate.getHours();
+				var m=oDate.getMinutes();
+				var s=oDate.getSeconds();
+				var ms=oDate.getMilliseconds();
+		    	oHou.style.WebkitTransform='rotate('+(h*30+m*6/30)+'deg)';
+		    	oMin.style.WebkitTransform='rotate('+(m*6+s*6/60)+'deg)';
+		    	oSec.style.WebkitTransform='rotate('+(s*6+ms/1000*6)+'deg)';
+			}
+            clock();
+		    setInterval(clock,1);
+		}
+	</script>
+</head>
+<body>
+	<div class="clock">
+		<div class="hou"></div>
+		<div class="min"></div>
+		<div class="sec"></div>
+		<div class="box"></div>
+	</div>
+</body>
+</html>

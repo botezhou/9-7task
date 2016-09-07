@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		#box{width: 400px;height: 300px;margin:100px auto;border:1px solid #000;background: #ccc;-webkit-transform:scale(5,5);opacity:0;display: none;}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById('btn');
+			var oBox=document.getElementById('box');
+			var oClose=document.getElementById('close');
+			oBtn.onclick=function(){
+				oBox.style.display='block';
+				oBox.style.WebkitTransition='1s all ease';
+				setTimeout(function(){
+					oBox.style.WebkitTransform='scale(1,1)';
+					oBox.style.opacity=1;
+					
+				},0);
+			}
+			oClose.onclick=function(){
+				oBox.style.WebkitTransform='scale(5,5)';
+				oBox.style.opacity=0;
+				  	
+				function trend(){
+					oBox.removeEventListener('transitionend',trend,false);
+			        oBox.style.display='none';			  					
+				}
+				oBox.addEventListener('transitionend',trend,false)
+			}
+		}
+	</script>
+</head>
+<body>
+	<a href="javascript:;" id="btn">登陆</a>
+	<div id="box">
+		<input type="text">
+		<input type="text">
+		<input type="text">
+		<input type="text">
+		<a href="javascript:;" id="close">X</a>
+	</div>
+</body>
+</html>
